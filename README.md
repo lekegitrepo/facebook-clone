@@ -1,24 +1,6 @@
-# README
+# Facebook Clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Entity Relationship Diagram (ERD)
+  The representation of data architecture for the facebook clone project.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  <div style="width: 960px; height: 720px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:960px; height:720px" src="https://www.lucidchart.com/documents/embeddedchart/5d15c871-ca8b-4d2d-9fee-49543150b700" id="y4pa.sb~.EO_"></iframe></div>
