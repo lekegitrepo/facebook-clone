@@ -60,6 +60,8 @@ development:
 test:
   <<: *default
   database: facebook_clone_test
+  host: localhost
+  port: 5432
   username: <%= ENV['POSTGRE_USER'] %>
   password: <%= ENV['POSTGRE_PASSWORD'] %>
 
