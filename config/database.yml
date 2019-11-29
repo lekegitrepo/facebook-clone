@@ -24,8 +24,8 @@ default: &default
 development:
   <<: *default
   database: facebook_clone_development
-  username: postgres
-  password: YOUR PASSWORD
+  username: <%= ENV['POSTGRE_USER'] %>
+  password: <%= ENV['POSTGRE_PASSWORD'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -60,8 +60,8 @@ development:
 test:
   <<: *default
   database: facebook_clone_test
-  username: postgres
-  password: YOUR PASSWORD
+  username: <%= ENV['POSTGRE_USER'] %>
+  password: <%= ENV['POSTGRE_PASSWORD'] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
