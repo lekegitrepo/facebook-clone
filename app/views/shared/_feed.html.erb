@@ -1,0 +1,19 @@
+
+<% @posts.each do |post| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3"><span>author image</span></div>
+      <div class="col-md-9">
+        <span><%= post.user.username %></span>
+        <span><%= post.content %></span>
+        <p><%= time_ago_in_words(p.created_at) %> ago</p>
+      </div>
+    </div>
+  </div>
+  <% if current_user?(post.user)%>
+    <span><%= link_to 'edit', edit_post_path(post) %></span>
+    <span> <%= link_to 'delete', post, method: :delete, 
+             data: { confirm: 'Are you sure?'}
+    </span>
+  <% end %>
+<% end %>
