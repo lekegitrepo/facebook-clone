@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :check_post, only: %i[edit destroy]
+  before_action :check_post, only: %i[edit update destroy]
 
 
   def index
@@ -25,6 +25,14 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      flash[:success] = 'Successful updated post'
+      redirect_to root_path
+    else
+      flash[:warning] = 'Unable to update post, please try again'
+      render 'edit'
+    end
   end
 
   def destroy
