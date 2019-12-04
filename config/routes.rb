@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'user_profile', to: 'users#show'
+  # get 'user_profile', to: 'users#show'
   devise_for :users
   root 'pages#index'
   # For details on the DSL available within this file,
