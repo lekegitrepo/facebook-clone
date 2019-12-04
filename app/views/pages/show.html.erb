@@ -1,0 +1,24 @@
+<section>
+  <h1>User Profile</h1>
+  
+  <div>
+    <p>
+      <span>
+        <%= @user_profile.first_name %>
+      </span>
+      <span>
+        <%= @user_profile.last_name %>
+      </span>
+    </p>
+    <p>
+      <span>
+        <%= @user_profile.username %>
+      </span>
+    </p>
+  </div>
+  <h3>
+    <% if user_signed_in? %>
+     <span>You are signed in</span>
+    <% end %>
+  </h3>
+</section>
