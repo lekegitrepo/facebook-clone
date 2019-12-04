@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   before_action :check_post, only: %i[edit update destroy]
+  before_action :current_user_post, only: %i[edit update destroy]
+  before_action :user_signed_in?, only: %i[create destroy edit update]
 
 
   def index
@@ -53,5 +55,10 @@ class PostsController < ApplicationController
 
     flash[:danger] = 'Post does not exist'
     redirect_to root_path
+  end
+
+  def current_user_post
+    @post = current_user.posts.find(params[:id])
+    redirect_to root_path if @post.nil?
   end
 end
