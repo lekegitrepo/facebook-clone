@@ -20,4 +20,9 @@ RSpec.describe User, type: :model do
     subject.last_name = ' '
     expect(subject).to_not be_valid
   end
+
+  it 'should be valid' do
+    subject.email = nil
+    expect(subject).to_not be_valid
+  end
 end
