@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   before_action :check_post, only: %i[edit update destroy]
   before_action :current_user_post, only: %i[edit update destroy]
   before_action :user_signed_in?, only: %i[create destroy edit update]
-
 
   def index
     @posts = Post.all.order('created_at DESC')

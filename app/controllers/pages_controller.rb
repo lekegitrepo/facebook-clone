@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PagesController < ApplicationController
   def index
     @posts = current_user.posts.all.order('created_at DESC')
