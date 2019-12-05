@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   subject do
     User.new(first_name: 'John', last_name: 'Doe', username: 'johndoe',
-             email: 'john@gmail.com', password: 'johndoe')
+             email: 'john@gmail.com', password: 'johndoe',
+             password_confirmation: 'johndoe')
   end
 
   before { subject.save }
