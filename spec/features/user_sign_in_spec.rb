@@ -38,4 +38,18 @@ RSpec.describe 'user login', type: :feature do
 
     expect(page).to have_button('Log in')
   end
+
+  scenario 'invalid empty login' do
+    visit '/users/sign_in'
+    fill_in 'Email', with: ''
+    fill_in 'Password', with: ' '
+    click_button 'Log in'
+
+    expect(page).to have_content('Log in')
+    expect(page).to have_content('Remember me')
+    expect(page).to have_content('Sign up')
+    expect(page).to have_content('Forgot your password?')
+
+    expect(page).to have_button('Log in')
+  end
 end
