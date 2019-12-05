@@ -23,4 +23,22 @@ RSpec.describe 'create post', type: :feature do
 
     expect(page).to have_button('Share')
   end
+
+  scenario 'delete a post', js: true do
+    visit root_path
+    fill_in 'post[content]', with: 'New post for test'
+    click_button 'Share'
+
+    expect(page).to have_content('New post for test')
+
+    click_on 'delete'
+
+    click_button 'OK'
+
+    a = page.driver.browser.switch_to.alert
+    a.text.should = 'Are you sure?'
+    a.accept
+
+    expect(page).to_not have_content('New post for test')
+  end
 end
