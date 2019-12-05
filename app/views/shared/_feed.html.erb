@@ -2,9 +2,9 @@
 <% @posts.each do |post| %>
   <div class="container">
     <div class="row">
-      <div class="col-md-3"><span>author image</span></div>
+      <div class="col-md-3"><span><%= gravatar_for post.user %></span></div>
       <div class="col-md-9">
-        <span><%= post.user.username %></span>
+        <span><%= post.user.username %>:</span>
         <span><%= post.content %></span>
         <p><%= time_ago_in_words(post.created_at) %> ago</p>
       </div>
