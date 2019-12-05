@@ -1,10 +1,14 @@
 <div class="form-group">
   <%= form_for (Post.new) do |f| %>
-    <div>
-      <%= f.text_area :content, class: 'form-control', placeholder: "what's on your mind" %>
-    </div>
-    <div>
-      <%= f.submit 'Post', class: 'btn btn-primary' %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <%= f.text_area :content, class: 'form-control', placeholder: "what's on your mind" %>
+        </div>
+        <div class="col-md-3">
+          <%= f.submit 'Share', class: 'btn btn-primary' %>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>

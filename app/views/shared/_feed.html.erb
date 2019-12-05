@@ -11,10 +11,12 @@
     </div>
   </div>
   <% if current_user?(post.user)%>
-    <span><%= link_to 'edit', edit_post_path(post) %></span>
-    <span>
-      <%= link_to 'delete', post, method: :delete, 
-             data: { confirm: 'Are you sure?'} %>
-    </span>
+    <div class="text-center">
+      <span><%= link_to 'edit', edit_post_path(post) %></span>
+      <span>
+        <%= link_to 'delete', post, method: :delete, 
+               data: { confirm: 'Are you sure?'} %>
+      </span>
+    </div>
   <% end %>
 <% end %>
