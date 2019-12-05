@@ -3,14 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe 'user sign up', type: :feature do
-  # subject do
-  #   User.new(first_name: 'John', last_name: 'Doe', username: 'johndoe',
-  #            email: 'john@gmail.com', password: 'johndoe',
-  #            password_confirmation: 'johndoe')
-  # end
-
-  # before { subject.save }
-
   scenario 'valid user sign up' do
     visit '/users/sign_up'
     fill_in 'First name', with: 'John'
