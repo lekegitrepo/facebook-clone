@@ -45,7 +45,8 @@ group :development, :test do
   gem 'dotenv-rails'
 
   # The RSpec testing framework
-  gem 'rspec-rails'
+  # gem 'rspec-rails'
+  gem 'rspec-rails', '~> 4.0.0.beta2'
 
   # Capybara, the library that allows us to interact with the browser using Ruby
   # Adds support for Capybara system testing and selenium driver
