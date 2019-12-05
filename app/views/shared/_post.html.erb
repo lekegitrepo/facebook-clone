@@ -6,7 +6,7 @@
           <%= f.text_area :content, class: 'form-control', placeholder: "what's on your mind" %>
         </div>
         <div class="col-md-3">
-          <%= f.submit 'Share', class: 'btn btn-primary' %>
+          <%= f.submit yield(:button_title), class: 'btn btn-primary' %>
         </div>
       </div>
     </div>
