@@ -34,7 +34,8 @@ RSpec.describe 'create post', type: :feature do
     click_on 'delete'
 
     a = page.driver.browser.switch_to.alert
-    a.text.should == 'Are you sure?'
+    # a.text.should == 'Are you sure?'
+    expect(a).to have_content('Are you sure?')
     a.accept
 
     expect(page).to_not have_content('New post for test')
