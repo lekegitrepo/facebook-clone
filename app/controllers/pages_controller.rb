@@ -9,4 +9,8 @@ class PagesController < ApplicationController
   def show
     @user_profile = current_user
   end
+
+  def all_users
+    @users = User.all
+  end
 end
