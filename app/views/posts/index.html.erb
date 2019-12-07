@@ -1,7 +1,31 @@
-<div>
-	<% @posts.each do |post| %>
+<% provide(:button_title, 'Share') %>
+<section class="container">
+  <div class="row">
+    <section class="col-md-3">
+      <h4>Applications</h4>
+      
+    </section>
+
+    <section class="col-md-6">
+      <h4>Contents and Posts</h4>
+      <div><%= link_to 'friends', users_list_path %></div>
+      <%= render 'shared/post' %>
+      <article>
+        <%= render 'shared/feed' %>
+      </article>
+    </section>
+
+    <section class="col-md-3">
+      <h4 class="hidden">Advertisements</h4>
+      
+    </section>
+  </div>
+</section>
+
+<!-- <div>
+	<%# @posts.each do |post| %>
 	<ul>
-	  <li><%= post.content %></li>
+	  <li><%#= post.content %></li>
 	</ul>
-	<% end %>
-</div>
+	<%# end %>
+</div> -->

@@ -1,0 +1,22 @@
+
+<% @posts.each do |post| %>
+  <div>
+    <div class="row">
+      <div class="col-md-3"><span><%= gravatar_for post.user %></span></div>
+      <div class="col-md-9">
+        <span><%= post.user.username %>:</span>
+        <span><%= post.content %></span>
+        <p><%= time_ago_in_words(post.created_at) %> ago</p>
+      </div>
+    </div>
+  </div>
+  <% if current_user?(post.user)%>
+    <div class="text-center">
+      <span><%= link_to 'edit', edit_post_path(post) %></span>
+      <span>
+        <%= link_to 'delete', post, method: :delete, 
+               data: { confirm: 'Are you sure?'} %>
+      </span>
+    </div>
+  <% end %>
+<% end %>
