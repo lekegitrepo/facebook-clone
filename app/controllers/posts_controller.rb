@@ -6,7 +6,8 @@ class PostsController < ApplicationController
   before_action :user_signed_in?, only: %i[create destroy edit update]
 
   def index
-    @posts = Post.all.order('created_at DESC')
+    @posts = current_user.posts.all.order('created_at DESC')
+    @my_post = current_user.posts.build
   end
 
   def new
@@ -36,6 +37,10 @@ class PostsController < ApplicationController
       flash[:warning] = 'Unable to update post, please try again'
       render 'edit'
     end
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   def destroy
