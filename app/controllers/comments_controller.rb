@@ -24,7 +24,6 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     if @comment.update(comment_params)
-      flash[:success] = 'Comment is edited'
       redirect_to root_path
     else
       render 'edit'
