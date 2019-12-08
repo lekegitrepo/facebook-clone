@@ -30,12 +30,15 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    current_post = Post.find(params[:id])
+
     if @post.update(post_params)
       flash[:success] = 'Successful updated post'
       redirect_to root_path
     else
       flash[:warning] = 'Unable to update post, please try again'
-      render 'edit'
+      @my_post = current_post
+      render :edit
     end
   end
 
