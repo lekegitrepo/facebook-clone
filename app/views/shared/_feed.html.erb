@@ -10,14 +10,7 @@
       </div>
     </div>
     <div>
-      <%= form_for @comment do |f| %>
-        <div>
-          <div>
-            <%= f.text_area :comment, placeholder: 'comment here ...', class: 'form-control' %>
-          </div>
-          <div><%= f.submit 'comment', class: 'btn btn-primary' %></div>
-        </div>
-      <% end %>
+      <%= render 'comments/comment' %>
     </div>
   </div>
   <% if current_user?(post.user)%>
