@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  validates :comment, presence: true
-
   def index
     @post = Post.find(params[:id])
     @comments = @post.comments.all.order('created_at DESC')
@@ -15,7 +13,12 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(comment_params)
-    redirect_to root_path if @comment.save
+    if @comment.save
+      flash[:success] = 'Comment created!'
+    else
+      flash[:danger] = 'Comment not created!'
+    end
+    redirect_to root_path
   end
 
   def edit

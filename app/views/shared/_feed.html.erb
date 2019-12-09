@@ -10,7 +10,27 @@
       </div>
     </div>
     <div>
-      <%= render 'comments/comment' %>
+      <p>
+        <% post.comments.each do |commnt| %>
+          <div>
+            <div>
+              <span><%= gravatar_icon_for (commnt.user) %>  </span><span> <%= commnt.comment %></span>
+            </div>
+          </div>
+        <% end %>
+      </p>
+      <p>
+        <%#= render 'comments/comment_form' %>
+        <%= form_for Comment.new do |f| %>
+          <div>
+            <%= f.text_area :comment, class: "form-control" %>
+          </div>
+          <div>
+            <%= f.submit "comment", class: "btn btn-primary btn-xs" %>
+          </div>
+           <%= f.hidden_field :post_id, value: post.id %>
+        <% end  %>
+      </p>
     </div>
   </div>
   <% if current_user?(post.user)%>
