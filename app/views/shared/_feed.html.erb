@@ -11,6 +11,7 @@
     </div>
     <div>
       <p>
+        <div><%= pluralize(post.comments.count, 'comment') %> </div>
         <% post.comments.each do |commnt| %>
           <div>
             <div>
