@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
+  before_action :check_comment, only: %i[edit update destroy]
   def create
     @comment = current_user.comments.build(comment_params)
     if @comment.save
@@ -31,6 +32,14 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def check_comment
+    @comment = Comment.find(params[:id])
+    return unless @comment.nil?
+
+    flash[:danger] = 'Post does not exist'
+    redirect_to root_path
+  end
 
   def comment_params
     params.require(:comment).permit(:comment, :post_id)
