@@ -8,6 +8,11 @@
         <span><%= post.content %></span>
         <p><%= time_ago_in_words(post.created_at) %> ago</p>
       </div>
+      <% if liked?(post) %>
+        <%= link_to 'Unlike', post_like_path(post.id, id: like_post(post).id), method: :delete %>
+      <% else %>
+        <%= link_to 'Like', post_likes_path(post), method: :post %>
+      <% end %>
     </div>
     <div>
       <p>
@@ -57,3 +62,13 @@
     </div>
   <% end %>
 <% end %>
+
+<%# if liked?(post) %>
+  <%#= button_to post_like_path(post.id, id: like_post(post).id), method: :delete, class: 'btn' do %>
+    <!-- <i class="fa fa-thumbs-down"> </i> -->
+  <%# end %>
+<%# else %>
+  <%#= button_to post_likes_path(post.id), method: :post, class: 'btn' do %>
+    <!-- <i class="fa fa-thumbs-up"> </i> -->
+  <%# end %>
+<%# end %>
