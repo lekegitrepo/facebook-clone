@@ -1,16 +1,6 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  def index
-    @post = Post.find(params[:id])
-    @comments = @post.comments.all.order('created_at DESC')
-  end
-
-  def new
-    @post = Post.find(params[:id])
-    @comment = @post.comments.build
-  end
-
   def create
     @comment = current_user.comments.build(comment_params)
     if @comment.save
