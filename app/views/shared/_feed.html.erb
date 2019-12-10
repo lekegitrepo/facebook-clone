@@ -1,67 +1,69 @@
-
-<% @posts.each do |post| %>
-  <div>
-    <div class="row">
-      <div class="col-md-3"><span><%= gravatar_for post.user %></span></div>
-      <div class="col-md-9">
-        <span><%= post.user.username %>:</span>
-        <span><%= post.content %></span>
-        <p><%= time_ago_in_words(post.created_at) %> ago</p>
+<section class="card mb-3">
+  <% @posts.each do |post| %>
+    <div class="p-3">
+      <div class="row">
+        <div class="col-md-3"><span><%= gravatar_for post.user %></span></div>
+        <div class="col-md-9">
+          <span><%= post.user.username %>:</span>
+          <span><%= post.content %></span>
+          <p><%= time_ago_in_words(post.created_at) %> ago</p>
+        </div>
+        <div class="pl-3">
+          <% if liked?(post) %>
+            <%= link_to 'Unlike', post_like_path(post.id, id: like_post(post).id), method: :delete %>
+          <% else %>
+            <%= link_to 'Like', post_likes_path(post), method: :post %>
+          <% end %>
+        </div>
       </div>
-      <% if liked?(post) %>
-        <%= link_to 'Unlike', post_like_path(post.id, id: like_post(post).id), method: :delete %>
-      <% else %>
-        <%= link_to 'Like', post_likes_path(post), method: :post %>
-      <% end %>
-    </div>
-    <div>
-      <p>
-        <div><%= pluralize(post.comments.count, 'comment') %> </div>
-        <% post.comments.each do |commnt| %>
-          <div>
+      <div>
+        <p>
+          <div><%= pluralize(post.comments.count, 'comment') %> </div>
+          <% post.comments.each do |commnt| %>
             <div>
-              <span><%= gravatar_icon_for (commnt.user) %>  </span><span> <%= commnt.user.username %></span>
+              <div>
+                <span><%= gravatar_icon_for (commnt.user) %>  </span><span> <%= commnt.user.username %></span>
+              </div>
+              <div>
+                <span> <%= commnt.comment %></span> <br>
+                <span><%= time_ago_in_words(commnt.created_at) %> ago</span>
+              </div>
+              <div>
+                <%if current_user?(commnt.user) %>
+                  <%= link_to  "Delete", commnt, method: :delete, data: { confirm: "You sure?" } %>
+                  <%= link_to "Edit", edit_comment_path(commnt)%>
+                <%elsif current_user.id != commnt.user && current_user.id == post.user_id %>
+                  <%= link_to  "Delete", commnt, method: :delete, data: { confirm: "You sure?" } %>
+                  <br> <br>
+                <%end%>
+              </div>
+            </div>
+          <% end %>
+        </p>
+        <p>
+          <%= form_for Comment.new do |f| %>
+            <div>
+              <%= f.text_area :comment, class: "form-control" %>
             </div>
             <div>
-              <span> <%= commnt.comment %></span> <br>
-              <span><%= time_ago_in_words(commnt.created_at) %> ago</span>
+              <%= f.submit "comment", class: "btn btn-primary btn-xs" %>
             </div>
-            <div>
-              <%if current_user?(commnt.user) %>
-                <%= link_to  "Delete", commnt, method: :delete, data: { confirm: "You sure?" } %>
-                <%= link_to "Edit", edit_comment_path(commnt)%>
-              <%elsif current_user.id != commnt.user && current_user.id == post.user_id %>
-                <%= link_to  "Delete", commnt, method: :delete, data: { confirm: "You sure?" } %>
-                <br> <br>
-              <%end%>
-            </div>
-          </div>
-        <% end %>
-      </p>
-      <p>
-        <%#= render 'comments/comment_form' %>
-        <%= form_for Comment.new do |f| %>
-          <div>
-            <%= f.text_area :comment, class: "form-control" %>
-          </div>
-          <div>
-            <%= f.submit "comment", class: "btn btn-primary btn-xs" %>
-          </div>
-           <%= f.hidden_field :post_id, value: post.id %>
-        <% end  %>
-      </p>
+             <%= f.hidden_field :post_id, value: post.id %>
+          <% end  %>
+        </p>
+      </div>
     </div>
-  </div>
-  <% if current_user?(post.user)%>
-    <div class="text-center">
-      <span><%= link_to 'edit', edit_post_path(post) %></span>
-      <span>
-        <%= link_to 'delete', post, method: :delete, 
-               data: { confirm: 'Are you sure?'} %>
-      </span>
-    </div>
+    <% if current_user?(post.user)%>
+      <div class="text-center">
+        <span><%= link_to 'edit post', edit_post_path(post) %> </span>|
+        <span> 
+          <%= link_to 'delete post', post, method: :delete, 
+                 data: { confirm: 'Are you sure?'} %>
+        </span>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</section>
 
 <%# if liked?(post) %>
   <%#= button_to post_like_path(post.id, id: like_post(post).id), method: :delete, class: 'btn' do %>

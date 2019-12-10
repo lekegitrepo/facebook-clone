@@ -9,14 +9,14 @@ class LikesController < ApplicationController
 
   def destroy
     @like = Like.find(params[:id])
-    @like.delete
+    @like.destroy
     redirect_back(fallback_location: root_path)
   end
 
   private
 
   def check_post
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:post_id])
     return unless @post.nil?
 
     flash[:danger] = 'Post does not exist'
