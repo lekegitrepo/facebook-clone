@@ -16,6 +16,12 @@ Rails.application.routes.draw do
     resources :likes
   end
 
+  resources :users do
+    resources :friendships
+    delete 'reject_request', to: 'friendships#destroy'
+    post 'accept_request', to: 'friendships#update'
+  end
+
   resources :comments
   resources :users
 end
