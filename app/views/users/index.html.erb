@@ -1,0 +1,11 @@
+<div>
+  <% @users.each do |user| %>
+  <ul>
+    <% if user != current_user %>
+      <li><span><%= user.username %> </span>| 
+        <span><%= link_to 'send request', '#' %></span>
+      </li>
+    <% end %>
+  </ul>
+  <% end %>
+</div>
