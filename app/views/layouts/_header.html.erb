@@ -9,7 +9,7 @@
                 <%= current_user.username %> <b class="caret"></b>
               </a>
               <ul class="dropdown-menu dropdown-menu-right">
-                <li><%= link_to "Profile", user_profile_path %></li>
+                <li><%= link_to "Profile", current_user %></li>
                 <li><%= link_to "Settings",  edit_user_registration_path(current_user) %></li>
                 <li role="separator" class="divider"></li>
                 <li>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'user_profile', to: 'pages#show'
+  # get 'user_profile', to: 'pages#show'
   get 'users_list', to: 'users#index'
   
   devise_scope :user do
