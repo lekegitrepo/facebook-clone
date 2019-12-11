@@ -6,13 +6,13 @@ class FriendshipsController < ApplicationController
   end
 
   def create
-    new_friend = User.find(params[:id])
+    new_friend = User.find(params[:user_id])
     current_user.send_request(new_friend)
     redirect_back(fallback_location: root_path)
   end
 
   def update
-    my_friend = User.find(params[:id])
+    my_friend = User.find(params[:user_id])
     current_user.confirm_friend(my_friend)
     redirect_back(fallback_location: root_path)
   end

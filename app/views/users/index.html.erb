@@ -1,11 +1,15 @@
 <div>
   <% @users.each do |user| %>
-  <ul>
     <% if user != current_user %>
-      <li><span><%= user.username %> </span>| 
-        <span><%= link_to 'send request', '#' %></span>
-      </li>
+      <div class="card col-3 mb-4 mx-2" >
+        <%= gravatar_for user, class: "card-img-top" %>
+        <div class="card-body ">
+          <h4 class="card-title"><%= user.first_name %></h4>
+          <p class="card-text"><%= user.last_name %></p>
+          <p class="card-text"><%= user.username %></p>
+          <%= button_to 'View Profile', user, class: "btn btn-primary" %>
+        </div>
+      </div>
     <% end %>
-  </ul>
   <% end %>
 </div>
