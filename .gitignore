@@ -10,9 +10,6 @@
 # Ignore env
 .env
 
-/app/controllers/users_controller.rb
-/app/views/users
-
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
