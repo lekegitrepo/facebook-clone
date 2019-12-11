@@ -9,10 +9,13 @@ gem 'rails', '~> 6.0.1'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
+# bootstrap
+gem 'bootstrap-sass'
+gem 'bootstrap-will_paginate'
+# jquery
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
-gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
-gem 'bootstrap-sass'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -24,6 +27,8 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'faker'
+gem 'will_paginate'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
