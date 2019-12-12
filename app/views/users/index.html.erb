@@ -7,6 +7,15 @@
           <h4 class="card-title"><%= user.first_name %></h4>
           <p class="card-text"><%= user.last_name %></p>
           <p class="card-text"><%= user.username %></p>
+          <% if current_user.friend?(user) %>
+            <div><%= user.username %> is one of my friend </div>
+          <% elsif current_user.pending_friends.include?(user) %>
+            <div>your request is pending</div>
+          <% elsif current_user.friend_requests.include?(user) %>
+            <div>sent you a friend requests</div>
+          <% else %>
+            <div>add friend</div>
+          <% end %>
           <%= link_to 'View Profile', user_path(user), class: "btn btn-primary" %>
         </div>
       </div>
