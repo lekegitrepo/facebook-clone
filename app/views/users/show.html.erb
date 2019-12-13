@@ -20,6 +20,9 @@
         <%= @user_profile.email %>
       </span>
     </p>
+    <div>
+      <%= render partial: 'shared/user_status', locals: {user: @user_profile} %>
+    </div>
   </div>
 
   <% @user_profile.posts.each do |post| %>
