@@ -17,6 +17,18 @@ class FriendshipsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def destroy
+    user = User.find(params[:user_id])
+    @connection = Friendship.where('user_id = ? and friend_id = ?', current_user.id, user.id).first
+    @inverse_connection = Friendship.where('user_id = ? and friend_id = ?', user.id, current_user.id).first
+    if @connection
+      @connection.destroy
+    else
+      @inverse_connection.destroy
+    end
+    redirect_back(fallback_location: root_path)
+  end
+
   private
 
   def check_user

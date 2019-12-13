@@ -9,6 +9,9 @@
           <p class="card-text"><%= user.username %></p>
           <% if current_user.friend?(user) %>
             <div><%= user.username %> is one of my friend </div>
+            <div>
+              <%= button_to 'Unfriend',  user_reject_request_path(user), method: :delete , class: 'btn btn-danger mb-2' %>
+            </div>
           <% elsif current_user.pending_friends.include?(user) %>
             <div>
               <%= button_to 'Cancel request',  user_reject_request_path(user), method: :delete , class: 'btn btn-danger mb-2' %>
