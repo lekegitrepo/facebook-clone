@@ -39,12 +39,8 @@ class User < ApplicationRecord
   end
 
   def send_request(friend)
-    friendships.user_id.create(friend_id: friend.id)
+    Friendship.create(user_id: id, friend_id: friend.id)
   end
-
-  # def request(friend)
-  #   Friendship.create(user_id: id, friend_id: friend.id)
-  # end
 
   def friend(user)
   end
