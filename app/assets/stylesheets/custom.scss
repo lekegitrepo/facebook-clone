@@ -15,10 +15,19 @@ header {
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: white;
+    color: #d2dad8;
     text-decoration: none;
   }
 }
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  &:hover {
+    color: #d2dad8;
+  }
+}
+
 .main {
   margin-top: 60px;
 }
