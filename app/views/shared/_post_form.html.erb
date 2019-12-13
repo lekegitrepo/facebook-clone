@@ -1,0 +1,14 @@
+<div class="form-group">
+  <%= form_for (@my_post) do |f| %>
+    <div>
+      <div class="row">
+        <div class="col-md-9">
+          <%= f.text_area :content, class: 'form-control', placeholder: "what's on your mind" %>
+        </div>
+        <div class="col-md-3">
+          <%= f.submit yield(:button_title), class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,14 +1,19 @@
-<div class="form-group">
-  <%= form_for (@my_post) do |f| %>
-    <div>
-      <div class="row">
-        <div class="col-md-9">
-          <%= f.text_area :content, class: 'form-control', placeholder: "what's on your mind" %>
-        </div>
-        <div class="col-md-3">
-          <%= f.submit yield(:button_title), class: 'btn btn-primary' %>
-        </div>
-      </div>
-    </div>
-  <% end %>
+<div class="row">
+  <div class="col-md-3"><span><%= gravatar_for post.user %></span></div>
+  <div class="col-md-9">
+    <span><%= post.user.username %>:</span>
+    <span><%= post.content %></span>
+    <p><%= time_ago_in_words(post.created_at) %> ago</p>
+  </div>
+  <div class="pl-3">
+    <% if liked?(post) %>
+      <%= link_to 'Unlike', post_like_path(post.id, id: like_post(post).id), method: :delete %>
+    <% else %>
+      <%= link_to 'Like', post_likes_path(post), method: :post %>
+    <% end %>
+  </div>
+  <div class="mt-4">
+    <span><%= pluralize(post.comments.count, 'comment') %> </span>|
+    <span><%= pluralize(post.likes.count, 'like') %> </span>
+  </div>
 </div>
