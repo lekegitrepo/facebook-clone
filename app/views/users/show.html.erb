@@ -21,4 +21,10 @@
       </span>
     </p>
   </div>
+
+  <% @user_profile.posts.each do |post| %>
+    <div class="card mb-4">
+      <%= render partial: 'shared/post', locals: {post: post} %>
+    </div>
+  <% end %>
 </section>
