@@ -1,18 +1,1 @@
-<div>
-  <% @users.each do |user| %>
-    <% if user != current_user %>
-      <div class="card col-3 mb-4 mx-2" >
-        <%= gravatar_for user, class: "card-img-top" %>
-        <div class="card-body ">
-          <h4 class="card-title"><%= user.first_name %></h4>
-          <p class="card-text"><%= user.last_name %></p>
-          <p class="card-text"><%= user.username %></p>
-          <%= render partial: 'shared/user_status', locals: {user: user} %>
-          <div>
-            <%= link_to 'View Profile', user_path(user), class: 'btn btn-primary' %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-</div>
+<%= render partial: 'shared/users', locals: {users: @users} %>
