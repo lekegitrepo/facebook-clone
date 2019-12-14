@@ -39,6 +39,8 @@ class User < ApplicationRecord
   end
 
   def send_request(friend)
+    return if Friendship.present?(user_id: id, friend_id: friend.id)
+
     Friendship.create(user_id: id, friend_id: friend.id)
   end
 
