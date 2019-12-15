@@ -38,7 +38,7 @@ class User < ApplicationRecord
   end
 
   def send_request(friend)
-    return if Friendship.exists?(user_id: id, friend_id: friend.id)
+    return if Friendship.exists?(user_id: id, friend_id: friend.id) || friend.id == id
 
     Friendship.create(user_id: id, friend_id: friend.id)
   end
@@ -53,5 +53,10 @@ class User < ApplicationRecord
 
   def friend?(user)
     friends.include?(user)
+  end
+
+  def friends_posts
+    friend_ids = friends.map(&:id)
+    Post.where('user_id IN (?) OR user_id=?', friend_ids, id)
   end
 end
