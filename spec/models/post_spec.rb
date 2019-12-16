@@ -4,23 +4,24 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   post = nil
-  subject do
-    User.new(first_name: 'John', last_name: 'Doe', username: 'johndoe',
-             email: 'john@gmail.com', password: 'johndoe',
-             password_confirmation: 'johndoe')
+  before :each do
+    @user = User.create!(first_name: 'John', last_name: 'Doe', username: 'johndoe',
+                         email: 'john04@gmail.com', password: 'johndoe',
+                         password_confirmation: 'johndoe')
+    @post = @user.posts.create!(content: 'This is a test post')
   end
 
-  before { subject.save }
-
-  before { post = subject.posts.create(content: 'This is a test post') }
-
   it 'should be valid' do
-    expect(subject).to be_valid
+    expect(@user).to be_valid
   end
 
   it 'post with empty content should not be valid' do
-    post.content = ' '
-    expect(post).to_not be_valid
+    expect(@post).to be_valid
+  end
+
+  it 'post with empty content should not be valid' do
+    @post.content = ' '
+    expect(@post).to_not be_valid
   end
 
   it 'create post without user should not be valid' do

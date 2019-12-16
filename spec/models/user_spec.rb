@@ -3,31 +3,30 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject do
-    User.new(first_name: 'John', last_name: 'Doe', username: 'johndoe',
-             email: 'john@gmail.com', password: 'johndoe',
-             password_confirmation: 'johndoe')
+  before :each do
+    @user = User.new(first_name: 'John', last_name: 'Doe', username: 'johndoe',
+                     email: 'john01@gmail.com', password: 'johndoe',
+                     password_confirmation: 'johndoe')
+    @user.save
   end
 
-  before { subject.save }
-
   it 'should be valid' do
-    expect(subject).to be_valid
+    expect(@user).to be_valid
   end
 
   it 'user with empty password should not be valid' do
-    subject.password = ' '
-    expect(subject).to_not be_valid
+    @user.password = ' '
+    expect(@user).to_not be_valid
   end
 
   it 'user with empty last name should not be valid' do
-    subject.last_name = ' '
-    expect(subject).to_not be_valid
+    @user.last_name = ' '
+    expect(@user).to_not be_valid
   end
 
   it 'user with email set to nil should not be valid' do
-    subject.email = nil
-    expect(subject).to_not be_valid
+    @user.email = nil
+    expect(@user).to_not be_valid
   end
 
   describe 'Associations' do
