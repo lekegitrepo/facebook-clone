@@ -16,7 +16,7 @@ RSpec.describe 'user sign up', type: :feature do
     expect(page).to have_content('johndoe')
     expect(page).to have_content('Applications')
     expect(page).to have_content('Contents and Posts')
-    expect(page).to have_content('Advertisements')
+    expect(page).to have_content('People you may know')
 
     expect(page).to have_button('Share')
   end
