@@ -35,7 +35,7 @@ class FriendshipsController < ApplicationController
   private
 
   def check_user
-    @user = User.find_by(id: params[:user_id])
+    @user = User.find(params[:user_id])
     return unless @user.nil?
 
     flash[:danger] = "Internal error: user doesn't exist"

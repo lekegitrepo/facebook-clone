@@ -1,0 +1,5 @@
+
+<div class="row">
+  <%= button_to 'Accept', user_accept_request_path(user), class: 'd-block pull-left btn btn-primary mr-2' %>
+      <%= button_to 'Reject', user_reject_request_path(user), method: :delete, class: 'pull-right btn btn-danger' %>
+</div>
