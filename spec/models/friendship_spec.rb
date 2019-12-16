@@ -12,7 +12,8 @@ RSpec.describe Friendship, type: :model do
                             email: 'jane@gmail.com', password: 'janedoe',
                             password_confirmation: 'janedoe')
     @second_user.save
-    @friends = Friendship.new(user_id: @first_user.id, friend_id: @second_user.id)
+    # @friends = Friendship.new(user_id: @first_user.id, friend_id: @second_user.id)
+    @friends = @first_user.send_request(@second_user)
   end
 
   it 'create a valid friendship' do
@@ -22,6 +23,16 @@ RSpec.describe Friendship, type: :model do
   it 'create an invalid friendship without a user' do
     @friends.user = nil
     expect(@friends).to_not be_valid
+  end
+
+  it 'should return nil if second user try to send a request' do
+    friend = @second_user.send_request(@first_user)
+    expect(friend).to eq nil
+  end
+
+  it 'should return nil if first user user try to send another request' do
+    friend = @first_user.send_request(@second_user)
+    expect(friend).to eq nil
   end
 
   it 'create an invalid friendship without a friend' do
