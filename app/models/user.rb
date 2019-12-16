@@ -55,8 +55,9 @@ class User < ApplicationRecord
     friends.include?(user)
   end
 
-  def friends_posts
+  def user_page_posts
     friend_ids = friends.map(&:id)
     Post.where('user_id IN (?) OR user_id=?', friend_ids, id)
+    # Post.where(user: (self.friends + self))
   end
 end
