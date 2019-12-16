@@ -17,6 +17,8 @@ module UsersHelper
   end
 
   def user_status(user)
+    return if current_user == user
+
     if current_user.friend?(user)
       "#{user.username} is one of my friend"
       button_to 'Unfriend', user_reject_request_path(user), method: :delete, class: 'btn btn-danger mb-2'
