@@ -6,12 +6,7 @@
     <p><%= time_ago_in_words(post.created_at) %> ago</p>
   </div>
   <div class="pl-3">
-    <% if liked?(post) %>
-      <%= link_to 'Unlike', post_like_path(post.id, id: like_post(post).id), method: :delete %>
-    <% else %>
-      <%= link_to 'Like', post_likes_path(post), method: :post %>
-    <% end %>
-  </div>
+    <%= like_unlike_post(post) %>
   <div class="mt-4">
     <span><%= pluralize(post.comments.count, 'comment') %> </span>|
     <span><%= pluralize(post.likes.count, 'like') %> </span>
