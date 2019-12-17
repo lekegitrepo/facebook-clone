@@ -17,12 +17,12 @@ Additional description about the project and its features.
 ## Built With
 
 - Ruby,
-- frameworks,
+- Rails,
 - technologies used
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://pacific-hamlet-16676.herokuapp.com/)
 
 
 ## Getting Started
