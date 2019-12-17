@@ -22,7 +22,7 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live Demo Link](https://pacific-hamlet-16676.herokuapp.com/)
+[Live Demo Link](https://facebclone.herokuapp.com/)
 
 
 ## Getting Started
