@@ -10,7 +10,9 @@ class PagesController < ApplicationController
     @user_profile = current_user
   end
 
-  def all_users
-    @users = User.all
-  end
+  def contact; end
+
+  def terms; end
+
+  def privacy; end
 end

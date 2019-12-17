@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  # get 'user_profile', to: 'pages#show'
+  get 'contact', to: 'pages#contact'
+  get 'terms', to: 'pages#terms'
+  get 'privacy', to: 'pages#privacy'
   get 'users_list', to: 'users#index'
   
   devise_scope :user do
