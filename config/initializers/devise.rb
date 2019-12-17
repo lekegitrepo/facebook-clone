@@ -14,7 +14,8 @@ Devise.setup do |config|
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
 
-  config.omniauth :facebook, "503157103878828", "b2a40006161ea754f95efa3c4aad8ffd", callback_url: "http://localhost:3000/users/auth/facebook/callback"
+  # config.omniauth :facebook, "503157103878828", "b2a40006161ea754f95efa3c4aad8ffd", callback_url: "http://localhost:3000/users/auth/facebook/callback"
+  config.omniauth :facebook, "503157103878828", "b2a40006161ea754f95efa3c4aad8ffd", scope: 'email', info_fields: 'email, first_name, last_name', callback_url: "http://localhost:3000/users/auth/facebook/callback"
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
