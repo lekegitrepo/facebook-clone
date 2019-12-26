@@ -13,7 +13,7 @@ gem 'puma', '~> 4.1'
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate'
 # jquery
-gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+# gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
