@@ -23,14 +23,13 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
 
   def friends
-    friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed }
-    inverse_friends = inverse_friendships.map { |friendship| friendship.user if friendship.confirmed }
-    (friends_array + inverse_friends).compact
+    friends = friendships.includes(:friend).where(confirmed: true).references(:users)
+    friends.map(&:friend)
   end
 
-  # Users who have yet to confirm friend requests
   def pending_friends
-    friendships.map { |friendship| friendship.friend unless friendship.confirmed }.compact
+    requests = friendships.includes(:friend).where(confirmed: false).references(:users)
+    requests.map(&:friend)
   end
 
   # Users who have requested to be friends
@@ -41,19 +40,26 @@ class User < ApplicationRecord
   def send_request(friend)
     return if Friendship.exists?(user_id: id, friend_id: friend.id) ||
               Friendship.exists?(user_id: friend.id, friend_id: id)
+    # return if Friendship.exists?(user_id: id, friend_id: friend.id) || friend.id == id
 
     Friendship.create(user_id: id, friend_id: friend.id)
   end
-
-  def friend(user); end
 
   def confirm_friend(user)
     friendship = inverse_friendships.find { |friend| friend.user == user }
     friendship.confirmed = true
     friendship.save
+
+    friendships.create(friend_id: user.id, confirmed: true)
   end
 
   def friend?(user)
     friends.include?(user)
+  end
+
+  def user_page_posts
+    friend_ids = friends.map(&:id)
+    Post.where('user_id IN (?) OR user_id=?', friend_ids, id)
+    # Post.where(user: (self.friends + self))
   end
 end

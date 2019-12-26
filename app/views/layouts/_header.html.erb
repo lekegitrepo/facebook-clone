@@ -12,7 +12,11 @@
           <%= link_to current_user.username, current_user, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to pluralize(current_user.friend_requests.count, 'Friend Request'), user_friendships_path(current_user), class: "nav-link" %>
+          <% if current_user.friend_requests.count > 0 %>
+            <%= link_to "you have #{pluralize(current_user.friend_requests.count, 'Friend Request')}", user_friendships_path(current_user), class: "nav-link" %>
+          <% else %>
+            <%= link_to "you have #{pluralize(current_user.friends.count, 'Friend')}", user_friendships_path(current_user), class: "nav-link" %>
+          <% end %>
         </li>
       <li class="nav-item">
           <%= link_to 'Home', root_path, class: "nav-link" %>

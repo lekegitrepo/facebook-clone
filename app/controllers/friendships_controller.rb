@@ -26,8 +26,7 @@ class FriendshipsController < ApplicationController
     @inverse_connection = Friendship.where('user_id = ? and friend_id = ?', user.id, current_user.id).first
     if @connection
       @connection.destroy
-    else
-      @inverse_connection.destroy
+      @inverse_connection&.destroy
     end
     redirect_back(fallback_location: root_path)
   end
