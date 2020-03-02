@@ -3,34 +3,42 @@
     <div class="card-body">
       <h5 class="card-title text-center">Sign In</h5>
 
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="field">
-            <%= f.label :email %> <br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name),
+         html: {class: "form-signin"}) do |f| %>
+          <div class="form-label-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email",
+            class: "form-control", placeholder:"Enter your email address" %>
           </div>
 
-          <div class="field">
-            <%= f.label :password %> <br />
-            <%= f.password_field :password, autocomplete: "current-password" %>
+          <div class="form-label-group">
+            <%= f.label :password %>
+            <%= f.password_field :password, autocomplete: "current-password",
+            class: "form-control", placeholder:"Enter your password" %>
           </div>
 
           <% if devise_mapping.rememberable? %>
-            <div class="field">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
+            <div class="custom-control custom-checkbox mb-3">
+              <%= f.check_box :remember_me, class: "custom-control-input", id:"customCheck1" %>
+              <%= f.label :remember_me, class: "custom-control-label" %>
             </div>
           <% end %>
 
           <div class="actions">
-            <%= f.submit "Log in" %>
+            <%= f.submit "sign in", class: "btn btn-lg btn-primary btn-block text-uppercase" %>
           </div>
         <% end %>
 
+        <hr class="my-4">
+
         <div>
-          <%= link_to "Sign up", signup_path %>
+          <%= link_to "Sign up", signup_path,
+          class: "btn btn-lg btn-block text-uppercase" %>
         </div>
 
-        <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+        <i class="fab fa-facebook-f mr-2"></i>        
+        <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path,
+        class: "btn btn-lg btn-facebook btn-block text-uppercase" %>
 
     </div>
   </div>
