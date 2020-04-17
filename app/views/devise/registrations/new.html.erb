@@ -1,7 +1,10 @@
-<section class="center jumbotron">
-  <h2>Sign up</h2>
+<section class="sign-up">
+  <h2 class="sign-up-text">Sign up</h2>
 
   <div class="row">
+    <div class="col-md-6">
+      <%= image_tag "facebook.png" %>
+    </div>
     <div class="col-md-6 col-md-offset-3">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
