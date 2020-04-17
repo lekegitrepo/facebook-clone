@@ -3,12 +3,14 @@
   <div class="col-md-9">
     <span><%= post.user.username %>:</span>
     <span><%= post.content %></span>
-    <p><%= time_ago_in_words(post.created_at) %> ago</p>
-  </div>
-  <div class="pl-3">
-    <%= like_unlike_post(post) %>
-  <div class="mt-4">
-    <span><%= pluralize(post.comments.count, 'comment') %> </span>|
-    <span><%= pluralize(post.likes.count, 'like') %> </span>
+    <div><%= time_ago_in_words(post.created_at) %> ago</div>
+    <div class="mt-1">
+      <span><%= pluralize(post.comments.count, 'comment') %> </span>|
+      <span><%= pluralize(post.likes.count, 'like') %> </span>
+    </div>
+    <span><%= like_unlike_post(post) %></span>
+    <% if current_user?(post.user)%>
+        <span><%= link_to 'edit post', edit_post_path(post) %> </span>
+    <% end %>
   </div>
 </div>

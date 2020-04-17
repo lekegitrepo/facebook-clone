@@ -40,7 +40,6 @@
     </div>
     <% if current_user?(post.user)%>
       <div class="text-center">
-        <span><%= link_to 'edit post', edit_post_path(post) %> </span>|
         <span> 
           <%= link_to 'delete post', post, method: :delete, 
                  data: { confirm: 'Are you sure?'} %>
