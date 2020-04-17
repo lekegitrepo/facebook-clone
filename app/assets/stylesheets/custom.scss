@@ -28,6 +28,24 @@ header {
 }
 
 .main {
-  margin-top: 60px;
+  margin-top: 80px;
   min-height: 100vh;
+}
+
+footer {
+  background-color: #f9f9f9;
+  height: 40px;
+  .container {
+    .row {
+      div {
+        a {
+          color: #6f6f6f;
+          &:hover {
+            color: #000000;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
 }
