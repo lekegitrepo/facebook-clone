@@ -6,13 +6,11 @@
         <%= form_for(resource, as: resource_name, url: session_path(resource_name),
          html: {class: "form-signin"}) do |f| %>
           <div class="form-label-group">
-            <%= f.label :email %>
             <%= f.email_field :email, autofocus: true, autocomplete: "email",
             class: "form-control", placeholder:"Enter your email address" %>
           </div>
 
           <div class="form-label-group">
-            <%= f.label :password %>
             <%= f.password_field :password, autocomplete: "current-password",
             class: "form-control", placeholder:"Enter your password" %>
           </div>

@@ -1,0 +1,23 @@
+.sign-up {
+  width: 50%;
+
+  .row {
+
+    .sign-up-container {
+      .actions {
+        display: flex;
+        flex-direction: column;
+        .btn {
+          margin-bottom: 10px;
+          width: 60%;
+          align-self: center;
+        }
+
+        .sign-up-btn {
+          border-radius: 2rem;
+          margin-bottom: 25px;
+        }
+      }
+    }
+  }
+}
