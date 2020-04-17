@@ -13,7 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
- @import 'custom.scss';
- @import 'login.scss';
- @import 'signup.scss';
