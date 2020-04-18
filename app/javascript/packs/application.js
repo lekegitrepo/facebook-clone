@@ -5,9 +5,6 @@
 
 import "bootstrap";
 import "./src/application.scss";
-import "./src/custom.scss";
-import './src/login.scss';
-import './src/signup.scss';
 
 require("@rails/ujs").start();
 require("turbolinks").start();
