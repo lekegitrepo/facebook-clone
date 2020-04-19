@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 # font-awesome
+gem 'font-awesome-rails'
 gem 'font-awesome-sass'
 
 gem 'faker'
