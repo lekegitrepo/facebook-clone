@@ -15,8 +15,12 @@
               </div>
               <div>
                 <%if current_user?(commnt.user) %>
-                  <%= link_to  "Delete", commnt, method: :delete, data: { confirm: "You sure?" } %>
-                  <%= link_to "Edit", edit_comment_path(commnt)%>
+                  <%= link_to  commnt, method: :delete, data: { confirm: "You sure?" } do%>
+                  <i class="fa fa-trash-o"></i>
+                  <% end %>
+                  <%= link_to edit_comment_path(commnt) do%>
+                  <i class="fa fa-edit"></i>
+                  <% end %>
                 <%elsif current_user.id != commnt.user && current_user.id == post.user_id %>
                   <%= link_to  "Delete", commnt, method: :delete, data: { confirm: "You sure?" } %>
                   <br> <br>
