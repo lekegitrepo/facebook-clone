@@ -1,6 +1,6 @@
 <section class="card mb-3">
   <% @posts.each do |post| %>
-    <div class="p-3">
+    <div class="p-3 post-container">
       <%= render partial: 'shared/post', locals: {post: post} %>
       <div>
         <p>

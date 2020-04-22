@@ -36,8 +36,12 @@ header {
   min-height: 100vh;
 }
 
+.post-container {
+  border-bottom: 1px solid rgba(0,0,0,0.125);
+}
+
 span a {
-  font-size: 25px;
+  font-size: 18px;
   margin-right: 4px;
 
   &:hover {
@@ -47,7 +51,7 @@ span a {
     color: #333332;
 
     &:hover {
-      color: #131514;
+      color: #080808;
     }
   }
 }
