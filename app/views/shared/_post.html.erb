@@ -10,7 +10,17 @@
     </div>
     <span><%= like_unlike_post(post) %></span>
     <% if current_user?(post.user)%>
-        <span><%= link_to 'edit post', edit_post_path(post) %> </span>
+        <span>
+          <%= link_to edit_post_path(post) do%>
+            <i class="fa fa-edit"></i>
+          <% end %>
+        </span>
+        <span> 
+          <%= link_to post, method: :delete, 
+                 data: { confirm: 'Are you sure?'} do%>
+              <i class="fa fa-trash-o"></i>
+          <% end %>
+        </span>
     <% end %>
   </div>
 </div>
