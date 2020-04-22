@@ -1,8 +1,12 @@
-
+body {
+  font-family: 'PT Sans Narrow', sans-serif;
+}
 /* header */
 
 header {
   background-color: #3b5998 !important;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: bold;
 }
 
 .logo {
@@ -30,6 +34,22 @@ header {
 .main {
   margin-top: 80px;
   min-height: 100vh;
+}
+
+span a {
+  font-size: 25px;
+  margin-right: 4px;
+
+  &:hover {
+    text-decoration: none;
+  }
+  i {
+    color: #333332;
+
+    &:hover {
+      color: #131514;
+    }
+  }
 }
 
 footer {
