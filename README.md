@@ -1,7 +1,7 @@
 # Facebook Clone
 
 ## Project Description
-Build Facebook! You’ll build a large portion of the core Facebook user functionality in this project. Details [here](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project#assignment)
+This is a Facebook clone project which implements a large portion of the core Facebook user functionality in this project. Details [here](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project#assignment)
 
 ![screenshot](./app_screenshot.png)
 
@@ -25,52 +25,56 @@ Additional description about the project and its features.
 [Live Demo Link](https://facebclone.herokuapp.com/)
 
 
-## Getting Started
+## Installation
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+1. Clone the repository in your local folder.
+
+```
+git@github.com:lekegitrepo/facebook-clone.git
+```
+
+2. Run
+
+### `bundle install`
+
+## Load the app in a browser
+
+#### Run:
+
+### `rails server`
+
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+## Test
+
+#### Run:
+
+### `rspec spec`
 
 
-To get a local copy up and running follow these simple example steps.
+## Author
 
-### Prerequisites
+👤 **Temitayo Adeleke**
 
-### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
-
-
-
-## Authors
-
-👤 **Author1**
-
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
+- Github: [@lekegitrepo](https://github.com/lekegitrepo)
+- Twitter: [@leketemi](https://twitter.com/leketemi)
+- Linkedin: [linkedin](https://www.linkedin.com/in/temitayo-adeleke/)
 
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/lekegitrepo/facebook-clone/issues).
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
-
 ## 📝 License
 
-This project is [MIT](lic.url) licensed.
+This project is [MiT](https://opensource.org/licenses/MIT) licensed.
+
+## Acknowledgment
+
+Design idea by [Marc-Antoine Roy on Behance](https://www.behance.net/gallery/11351281/NomNom)
